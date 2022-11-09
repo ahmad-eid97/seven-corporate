@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ar/terms", {data:[{}],fetch:{},mutations:void 0});
