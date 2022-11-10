@@ -3,8 +3,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="d-flex bd-highlight align-items-center">
-                            <div class="col-md-10">
+                        <div class="wrapper">
+                            <div class="">
+                                <div class="bd-highlight">
+                                    <div class="logo-box">
+                                        <a href="/"><img src="/assets/images/logo.png" alt="logoImage"
+                                                style="width: 250px;"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
                                 <div class="ml-auto bd-highlight">
                                     <div class="account-cad">
                                         <div class="item mb-30">
@@ -15,14 +23,6 @@
                                             </div>
                                         </div>
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="bd-highlight">
-                                    <div class="logo-box">
-                                        <a href="/"><img src="/assets/images/logo.png" alt="logoImage"
-                                                style="width: 250px;"></a>
                                     </div>
                                 </div>
                             </div>
@@ -51,6 +51,11 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 .medium-bar {
     @include md {
         display: none;
