@@ -65,10 +65,10 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style>
 .side-bar-widget .title {
   font-size: 20px;
-  color: #1f365c;
+  color: #212529;
   padding: 0;
   font-weight: 600;
   position: relative;
@@ -105,6 +105,7 @@ export default {
   background-position: center center !important;
   position: relative;
   background-color: #070b3b;
+  border-radius: 12px;
 }
 .side-bar-widget .widget-popular-post .item .info {
   overflow: hidden;
@@ -126,15 +127,6 @@ export default {
   font-size: 15px;
   margin-bottom: 0;
   max-width: 180px;
-  color: #0071dc;
-}
-
-p {
-  color: rgb(121, 120, 120) !important;
-  font-size: 0.9rem;
-  cursor: pointer;
-  &:hover {
-    color: var(--main-color) !important;
-  }
+  color: var(--main-color);
 }
 </style>
