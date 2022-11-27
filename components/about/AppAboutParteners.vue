@@ -1,5 +1,5 @@
 <template>
-    <section class="partners">
+    <section class="about-partners">     
         <swiper :options="swiperOption" class="owl-carousel">
         <swiper-slide v-for="partner in partners.partners" :key="partner.id">
             <div class="item">
@@ -20,47 +20,47 @@ export default {
     name: 'AppAboutPartners',
     data() {
         return {
-        swiperOption: {
+            swiperOption: {
             loop: true,
             slidesPerView: 5,
             spaceBetween: 50,
             breakpoints: {
-            // when window width is >= 320px
-            100: {
+                // when window width is >= 320px
+                100: {
                 slidesPerView: 1,
                 spaceBetween: 5,
-            },
-            // when window width is >= 480px
-            480: {
+                },
+                // when window width is >= 480px
+                480: {
                 slidesPerView: 2,
                 spaceBetween: 5,
-            },
-            // when window width is >= 640px
-            640: {
+                },
+                // when window width is >= 640px
+                640: {
                 slidesPerView: 3,
                 spaceBetween: 5,
-            },
-            992: {
+                },
+                992: {
                 slidesPerView: 4,
                 spaceBetween: 5,
-            },
-            1200: {
+                },
+                1200: {
                 slidesPerView: 5,
                 spaceBetween: 5,
+                },
+            }
             },
-            },
-        },
         }
     },
     props: ["partners"]
 }
 </script>
 <style>
-    .partners {
-        padding: 45px 100px 0;
-        background-color: var(--main-color);
+    .about-partners {
+        padding: 45px 100px 0 !important;
+        background-color: var(--main-color) !important;
     }
-    .partners::before {
+    .about-partners::before {
         content: '';
         position: absolute;
         top: 0;
@@ -73,20 +73,20 @@ export default {
         background-repeat: no-repeat;
         background-image: url(/assets/images/brand-bg.png);
     }
-    .partners .owl-carousel {
+    .about-partners .owl-carousel {
         margin-bottom: 40px;
     }
-    .partners .owl-carousel .item  {
+    .about-partners .owl-carousel .item  {
         text-align: center;
     }
-    .partners .owl-carousel .item img {
-        max-height: 115px;
+    .about-partners .owl-carousel .item img {
+        height: 80px !important;
         width: auto;
         display: inline;
         max-width: 100%;
-        height: auto;
+        width: auto !important;
     }
-    .partners .owl-carousel .owl-nav.disabled {
+    .about-partners .owl-carousel .owl-nav.disabled {
         display: none !important;
     }
 

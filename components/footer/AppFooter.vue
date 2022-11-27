@@ -25,7 +25,7 @@
                                 <ul class="footer-list footer-contact mb-10">
                                     <li><i class="pe-7s-call"></i> Phone: 001 (407) 901-6400</li>
                                     <li><i class="pe-7s-print"></i> Fax: 001 (407) 901-6400</li>
-                                    <li><i class="pe-7s-mail"></i> <a href="mailto:">Email: info@railcoder.com</a></li>
+                                    <li><i class="pe-7s-mail"></i> <a href="mailto:">Email: {{$store.state.websiteSettings.find(one => one.key === 'email').plain_value}}</a></li>
                                 </ul>
 
 
@@ -57,19 +57,17 @@
 
                                 </div>
                                 <ul class="footer-list">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Team</a></li>
-                                    <li><a href="#">Gallery</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Contact</a></li>
+                                    <!-- <li><a href="#">About Us</a></li> -->
+                                    <li><b-nav-item :to="localePath('/about')">About Us</b-nav-item></li>
+                                    <li><b-nav-item :to="localePath('/services')">Services</b-nav-item></li>
+                                    <li><b-nav-item :to="localePath('/team')">Team</b-nav-item></li>
+                                    <li><b-nav-item :to="localePath('/testimonials')">Gallery</b-nav-item></li>
+                                    <li><b-nav-item :to="localePath('/blogs')">Blogs</b-nav-item></li>
+                                    <li><b-nav-item :to="localePath('/contact')">Contact</b-nav-item></li>
                                 </ul>
 
                             </div>
                         </div>
-
-
-
 
                     </div>
                 </div>
