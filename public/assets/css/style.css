@@ -405,7 +405,7 @@ input:-moz-placeholder {
     font-weight: 600;
     letter-spacing: 0.8px;
     line-height: 0.9;
-    margin-bottom: 22px;
+    margin-bottom: 50px !important;
     text-transform: uppercase;
 }
 

@@ -12,41 +12,19 @@
                 <div class="col-md-6 col-lg-4 news-carousel">
                     <swiper :options="swiperOption" class="owl-carousel">
 
-                        <swiper-slide>
+                        <swiper-slide v-for="blog in blogs.slice(0, 2)" :key="blog.id">
                             <div class="item">
                                 <div class=" events-col">
 
                                     <div class="thumb">
-                                        <img src="/assets/images/testimonials/13.jpg" alt="">
+                                        <img :src="blog.image" :alt="blog.title">
                                     </div>
                                     <div class="content">
-                                        <h3>OCT. 18-21 2017 / PARIS</h3>
-                                        <h4>EUROPEAN BUSINESS FORUM</h4>
+                                        <h3>{{blog.publish_date}} / {{blog.username}}</h3>
+                                        <h4>{{blog.title}}</h4>
 
-                                        <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac. Aenean congue
-                                            placerat risus, eu ullamcorper velit maximus sed.</h6>
-                                            <a href="#" class="btn">VIEW DETAILS</a>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </swiper-slide>
-
-                        <swiper-slide>
-                            <div class="item">
-                                <div class=" events-col">
-
-                                    <div class="thumb">
-                                        <img src="/assets/images/testimonials/14.jpg" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <h3>OCT. 18-21 2017 / PARIS</h3>
-                                        <h4>EUROPEAN BUSINESS FORUM</h4>
-
-                                        <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac. Aenean congue
-                                            placerat risus, eu ullamcorper velit maximus sed.</h6>
-                                            <a href="#" class="btn">VIEW DETAILS</a>
+                                        <h6>{{blog.short_description}}</h6>
+                                            <nuxt-link :to="`/blog/${blog.id}`" class="btn">VIEW DETAILS</nuxt-link>
 
 
                                     </div>
@@ -61,60 +39,20 @@
                 <div class="col-md-6 col-lg-8">
 
                     <div class="row">
-                        <div class=" col-lg-4">
+                        <div v-for="blog in blogs.slice(2, blogs.length)" :key="blog.id" class=" col-lg-4">
                             <div class="events">
                                 <div class="thumb">
-                                    <img alt="" src="/assets/images/1.jpg">
+                                    <img :alt="blog.title" :src="blog.image">
                                 </div>
 
                                 <div class="content mt-40 right">
-                                    <h3>Quisque at nibh ac purus aliquet accumsan</h3>
+                                    <h3>{{blog.title}}</h3>
 
-                                    <p>Amet ipsum id sem quis mauris porttitor conse quat id vitae dolor. Phasellus
-                                        ligula velit molestie rhoncus ullamcorper mauris ultricies mi at pharetra
-                                        lorem.</p>
+                                    <p>{{blog.short_description}}</p>
                                 </div>
-                                <a href="" class="read-btn float-end">Read more
+                                <nuxt-link :to="`/blog/${blog.id}`" class="read-btn float-end">Read more
                                     <font-awesome-icon icon="fa-solid fa-caret-right" />
-                                </a>
-                            </div>
-
-                        </div>
-                        <div class=" col-lg-4">
-                            <div class="events">
-                                <div class="thumb">
-                                    <img alt="" src="/assets/images/2.jpg">
-                                </div>
-
-                                <div class="content mt-40 right">
-                                    <h3>Sed tincidunt urna sit amet tempus euismod</h3>
-
-                                    <p>Amet ipsum id sem quis mauris porttitor conse quat id vitae dolor. Phasellus
-                                        ligula velit molestie rhoncus ullamcorper mauris ultricies mi at pharetra
-                                        lorem.</p>
-                                </div>
-                                <a href="" class="read-btn float-end">Read more
-                                    <font-awesome-icon icon="fa-solid fa-caret-right" />
-                                </a>
-                            </div>
-
-                        </div>
-                        <div class=" col-lg-4">
-                            <div class="events">
-                                <div class="thumb">
-                                    <img alt="" src="/assets/images/3.jpg">
-                                </div>
-
-                                <div class="content mt-40 right">
-                                    <h3>Proin ligula iaculis quis ornare id purus</h3>
-
-                                    <p>Amet ipsum id sem quis mauris porttitor conse quat id vitae dolor. Phasellus
-                                        ligula velit molestie rhoncus ullamcorper mauris ultricies mi at pharetra
-                                        lorem.</p>
-                                </div>
-                                <a href="" class="read-btn float-end">Read more
-                                    <font-awesome-icon icon="fa-solid fa-caret-right" />
-                                </a>
+                                </nuxt-link>
                             </div>
 
                         </div>
@@ -128,6 +66,7 @@
 <script>
 export default {
     name: 'AppHomeNews',
+    props: ["blogs"],
     data() {
         return {
             swiperOption: {
@@ -167,6 +106,9 @@ export default {
         padding: 10px 16px;
         font-weight: bold;
         border: none;
+    }
+    .thumb img {
+        height: 250px;
     }
     .news-carousel .owl-theme .owl-nav .owl-next,
     .news-carousel .owl-theme .owl-nav .owl-next:hover, 

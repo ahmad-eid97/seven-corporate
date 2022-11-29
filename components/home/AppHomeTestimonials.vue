@@ -6,51 +6,15 @@
                 <div class="col-md-12">
                     <swiper :options="swiperOption" class="owl-carousel">
 
-                        <swiper-slide>
+                        <swiper-slide v-for="item in testimonials" :key="item.id">
                             <div class="item">
                                 <div class="testimonials-item">
                                     <div class="thumb">
-                                        <img src="/assets/images/testimonials/10.jpg" alt="">
+                                        <img :src="item.image" :alt="item.name">
                                     </div>
                                     <div class="content">
-                                        <h3>Richard Swift - Executive director at Seven Media LTD.</h3>
-                                        <p>The others comfortable these days are all
-                                            happy and free listen to a story now the world do not move to the beat of
-                                            just one drum what might be right for you may not be story of a man.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </swiper-slide>
-
-                        <swiper-slide>
-                            <div class="item">
-                                <div class="testimonials-item">
-                                    <div class="thumb">
-                                        <img src="/assets/images/testimonials/11.jpg" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <h3>Richard Swift - Executive director at Seven Media LTD.</h3>
-                                        <p>The others comfortable these days are all
-                                            happy and free listen to a story now the world do not move to the beat of
-                                            just one drum what might be right for you may not be story of a man.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </swiper-slide>
-
-                        <swiper-slide>
-                            <div class="item">
-                                <div class="testimonials-item">
-                                    <div class="thumb">
-                                        <img src="/assets/images/testimonials/12.jpg" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <h3>Richard Swift - Executive director at Seven Media LTD.</h3>
-                                        <p>The others comfortable these days are all
-                                            happy and free listen to a story now the world do not move to the beat of
-                                            just one drum what might be right for you may not be story of a man.</p>
+                                        <h3>{{item.name}} - {{item.job}}</h3>
+                                        <p>{{item.description}}</p>
 
                                     </div>
                                 </div>
@@ -70,6 +34,7 @@
 <script>
 export default {
     name: 'AppHomeTestimonials',
+    props: ["testimonials"],
     data() {
         return {
             swiperOption: {

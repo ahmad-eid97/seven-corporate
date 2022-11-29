@@ -15,14 +15,14 @@
         <!-- WHY WORK WITH US End -->
 
         <!-- SERVICES WE PROVIDESection Start -->
-        <app-home-services></app-home-services>
+        <app-home-services :services="services"></app-home-services>
         <!-- SERVICES WE PROVIDE Section End -->
 
         <!-- testimonials Section Start -->
-        <app-home-testimonials></app-home-testimonials>
+        <app-home-testimonials :testimonials="testimonials"></app-home-testimonials>
         <!-- testimonials Section End -->
 
-        <app-home-news></app-home-news>
+        <app-home-news :blogs="blogs"></app-home-news>
 
         <!-- Services Section Start -->
         <app-home-services-offers></app-home-services-offers>
@@ -56,9 +56,18 @@ export default {
   },
   async asyncData({ $axios }) {
     const sliderData = await $axios.get('/sliders');
+    
+    const services = await $axios.get('/services');
+
+    const testimonials = await $axios.get('/testimonials');
+
+    const blogs = await $axios.get('/blogs?latest=1');
 
     return {
-      sliderData: sliderData.data.data.sliders
+      sliderData: sliderData.data.data.sliders,
+      services: services.data.data.services,
+      testimonials: testimonials.data.data.testimonials,
+      blogs: blogs.data.data.blogs,
     }
   }
 }
