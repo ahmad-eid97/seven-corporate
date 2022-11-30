@@ -7550,14 +7550,15 @@ input {
 
 .overview-item {
     display: flex;
-    text-align: right;
+    gap: 10px;
+    /* text-align: right; */
     
 }
 .overview-icon {
     font-size: 20px;
     margin-left: 10px;
-    height: 40px;
-    width: 69px;
+    height: 50px !important;
+    width: 50px;
     background-color: var(--main-color);
     border-radius: 50%;
     position: relative;
@@ -7583,7 +7584,12 @@ input {
 }
 .about-item {
     display: flex;
-    
+    align-items: center;
+    justify-content: flex-end;
+}
+.about-item p {
+    margin-bottom: 0 !important;
+    margin-left: 15px;
 }
 .about-icon {
     font-size: 20px;

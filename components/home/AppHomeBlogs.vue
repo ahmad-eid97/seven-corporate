@@ -9,40 +9,17 @@
             <div class="row">
                 <div class="col-md-6 col-lg-4 slider-container">
                     <swiper :options="swiperOption" class="owl-carousel">
-                        <swiper-slide>
+                        <swiper-slide v-for="item in testimonials" :key="item.id">
                             <div class="item">
                                 <div class=" projects-col">
 
                                     <div class="thumb">
-                                        <img src="/assets/images/testimonials/9.jpg" alt="">
+                                        <img :src="item.image" :alt="item.title">
                                     </div>
                                     <div class="content">
-                                        <h4>RICHARD SWIFT</h4>
-                                        <h5>junior consultant</h5>
-                                        <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac. Aenean congue
-                                            placerat risus, eu ullamcorper velit maximus sed.</h6>
-                                        <h5>tel. 001 234 56 789</h5>
-                                        <h3>richard@your-website.com</h3>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </swiper-slide>
-
-                        <swiper-slide>
-                            <div class="item">
-                                <div class=" projects-col">
-
-                                    <div class="thumb">
-                                        <img src="/assets/images/testimonials/8.jpg" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <h4>MIRIAM GREENWOOD</h4>
-                                        <h5>consultant</h5>
-                                        <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac. Aenean congue
-                                            placerat risus, eu ullamcorper velit maximus sed.</h6>
-                                        <h5>tel. 001 234 56 789</h5>
-                                        <h3>miriam@your-website.com</h3>
+                                        <h4>{{item.title}}</h4>
+                                        <h5>{{item.job}}</h5>
+                                        <h6>{{item.description}}</h6>
 
                                     </div>
                                 </div>
@@ -54,56 +31,13 @@
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="">
-                        <div class="overview-item mb-20">
-                            
-                            <div class="overview-details">
-                                <h3 class="title">Lorem ipsum dolor sit</h3>
-                                <p class="text-black">Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Sunt
-                                    voluptates amet voluptatum.
-                                </p>
-                            </div>
+                        <div v-for="item in features.find(one => one.key === 'features_text_list').value" :key="item" class="overview-item mb-20">
                             <div class="overview-icon">
-                                <h4 class="one"><font-awesome-icon icon="fa-solid fa-leaf" /></h4>
+                                <h4 class="one"><font-awesome-icon :icon="item.icon" /></h4>
                             </div>
-                        </div>
-                        <div class="overview-item mb-20">
-                            
                             <div class="overview-details">
-                                <h3 class="title">Lorem ipsum dolor sit</h3>
-                                <p class="text-black">Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Sunt
-                                    voluptates amet voluptatum.
-                                </p>
-                            </div>
-                            <div class="overview-icon">
-                                <h4 class="one"><font-awesome-icon icon="fa-solid fa-layer-group" /></h4>
-                            </div>
-                        </div>
-                        <div class="overview-item mb-20">
-                            
-                            <div class="overview-details">
-                                <h3 class="title">Lorem ipsum dolor sit</h3>
-                                <p class="text-black">Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Sunt
-                                    voluptates amet voluptatum.
-                                </p>
-                            </div>
-                            <div class="overview-icon">
-                                <h4 class="one"><font-awesome-icon icon="fa-solid fa-arrows-spin" /></h4>
-                            </div>
-                        </div>
-                        <div class="overview-item mb-20">
-                            
-                            <div class="overview-details">
-                                <h3 class="title">Lorem ipsum dolor sit</h3>
-                                <p class="text-black">Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Sunt
-                                    voluptates amet voluptatum.
-                                </p>
-                            </div>
-                            <div class="overview-icon">
-                                <h4 class="one"><font-awesome-icon icon="fa-solid fa-layer-group" /></h4>
+                                <h3 class="title">{{item.title}}</h3>
+                                <p class="text-black">{{item.description}}</p>
                             </div>
                         </div>
                     </div>
@@ -111,21 +45,17 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="">
                         <div class="thumb">
-                            <img alt="" src="/assets/images/art001-1161x599.jpg">
+                            <img alt="" :src="blogs[0].image">
                         </div>
 
-                        <div class="content mt-40 right ">
-                            <h3>REFRACTORY SERVICES</h3>
+                        <div class="content mt-40 right">
+                            <h3>{{blogs[0].title}}</h3>
 
-                            <p>Donec odio augue placerat est, nec semper nisl lorem ipsum vestibulum lectus sem!
-
-                                Maecenas feugiat, nulla eget maximus elementum, odio augue placerat est, nec semper
-                                nisl erat ac ex el convallis ligula commodo ac. Aenean congue. Nunc eu tellus
-                                pellentesque!</p>
+                            <p>{{blogs[0].short_description}}</p>
                         </div>
-                        <a href="blog-details.html" class="read-btn float-end">Continue Reading
+                        <nuxt-link :to="`/blog/${blogs[0].id}`" class="read-btn float-end">Continue Reading
 
-                        </a>
+                        </nuxt-link>
                     </div>
                 </div>
             </div>
@@ -136,6 +66,7 @@
 <script>
 export default {
     name: 'AppHomeBlogs',
+    props: ["blogs", "features", "testimonials"],
     data() {
         return {
         swiperOption: {
@@ -207,11 +138,22 @@ export default {
         z-index: 2;
     }
     .overview-icon {
-        height: 34px !important;
+        /* height: 34px !important; */
     }
     .overview-icon .one {
         position: static !important;
         font-size: 23px !important;
         text-align: center;
+    }
+    .read-btn {
+        color: rgb(68, 66, 66);
+        text-decoration: underline !important;
+    }
+    .read-btn:hover {
+        color: var(--main-color);
+    }
+    .projects-col .thumb img {
+        height: 220px;
+        object-fit: contain;
     }
 </style>

@@ -4,14 +4,14 @@
         <app-home-slider :sliderData="sliderData"></app-home-slider>
         <!-- Slick Section End -->
         
-        <app-home-feature></app-home-feature>
+        <app-home-feature :features="features"></app-home-feature>
 
-        <app-home-blogs></app-home-blogs>
+        <app-home-blogs :blogs="blogs.slice(0, 1)" :features="features" :testimonials="testimonials"></app-home-blogs>
 
         <app-home-contact-divider></app-home-contact-divider>
 
         <!-- WHY WORK WITH US Start -->
-        <app-home-why></app-home-why>
+        <app-home-why :features="features"></app-home-why>
         <!-- WHY WORK WITH US End -->
 
         <!-- SERVICES WE PROVIDESection Start -->
@@ -56,6 +56,8 @@ export default {
   },
   async asyncData({ $axios }) {
     const sliderData = await $axios.get('/sliders');
+
+    const features = await $axios.get('/sections/features');
     
     const services = await $axios.get('/services');
 
@@ -65,6 +67,7 @@ export default {
 
     return {
       sliderData: sliderData.data.data.sliders,
+      features: features.data.data,
       services: services.data.data.services,
       testimonials: testimonials.data.data.testimonials,
       blogs: blogs.data.data.blogs,
