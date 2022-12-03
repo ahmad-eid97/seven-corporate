@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="about-us-main">
-                            <h4 v-for="(feature, index) in features.find(one => one.key === 'features_text_list').value" :key="index" class="about-us-main-icon">
+                            <h4 v-for="(feature, index) in features.find(one => one.key === 'features_text_list').value.slice(0, 5)" :key="index" class="about-us-main-icon">
                                 <div v-if="show == `show${index+1}`" class="about-us-main-content">
                                     <font-awesome-icon icon="fa-solid fa-user-tie" />
                                     <h2>

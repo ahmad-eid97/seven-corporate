@@ -1,45 +1,49 @@
 <template>
-   <section class="contact-divider pb-70">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 slide-style-center ">
-                    <div class="contact-item ">
-                        <h2>
-                            HURRY UP! CONTACT US TODAY AND GET
-                        </h2>
+  <section class="contact-divider pb-70">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 slide-style-center">
+          <div class="contact-item">
+            <h2>
+              {{
+                bannerTop.find((one) => one.key === "banner-top_title").value
+              }}
+            </h2>
 
-                        <h1>
-                            FREE FIRST CONSULTATION
-                        </h1>
+            <h1>
+              {{
+                bannerTop
+                  .find((one) => one.key === "banner-top_description")
+                  .value.substring(0, 100)
+              }}
+            </h1>
 
-                        <div class="contact-btn-item slide-style-center mt-sm-5 mt-2">
-                            <a class="contact-btn style-1" href="#">BOOK YOUR CONSULTATION</a>
-
-                        </div>
-                    </div>
-                </div>
-
+            <div class="contact-btn-item slide-style-center mt-sm-5 mt-2">
+              <a
+                class="contact-btn style-1"
+                :href="
+                  bannerTop.find((one) => one.key === 'banner-top_link').value
+                "
+                >BOOK YOUR CONSULTATION</a
+              >
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
-
 export default {
-    name: 'AppHomeContactDivider',
-    components: {},
-    data() {
-        return {
-            
-        }
-    },
-    methods : {
-        
-    }
-}
+  name: "AppHomeContactDivider",
+  props: ["bannerTop"],
+  components: {},
+  data() {
+    return {};
+  },
+  methods: {},
+};
 </script>
 
-<style>
-    
-</style>
+<style></style>
