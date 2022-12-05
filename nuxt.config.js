@@ -23,7 +23,8 @@ export default {
       { rel: 'stylesheet', href: '/css/vars/vars.css' },
       { rel: 'stylesheet', href: '/css/vars/globals.css' },
       { rel: 'stylesheet', href: '/css/vars/mixins.scss' },
-      { rel: 'stylesheet', href: 'swiper/css/swiper.css' }
+      { rel: 'stylesheet', href: 'swiper/css/swiper.css' },
+      { rel: 'stylesheet', href: '/assets/css/all.min.css' }
     ]
   },
 
