@@ -1,7 +1,10 @@
 <template>
   <section class="">
     <div class="container">
-      <div class="row gy-4 justify-content-center">
+      <div
+        class="row gy-4 justify-content-center"
+        v-if="features.find((one) => one.key === 'features_text_list').value"
+      >
         <div
           v-for="feature in features.find(
             (one) => one.key === 'features_text_list'

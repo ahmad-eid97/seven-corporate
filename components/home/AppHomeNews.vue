@@ -8,7 +8,11 @@
       </div>
       <div class="row">
         <div class="col-md-6 col-lg-4 news-carousel">
-          <swiper :options="swiperOption" class="owl-carousel">
+          <swiper
+            :options="swiperOption"
+            class="owl-carousel"
+            v-if="blogs.length >= 1"
+          >
             <swiper-slide v-for="blog in blogs.slice(0, 2)" :key="blog.id">
               <div class="item">
                 <div class="events-col">
@@ -33,7 +37,7 @@
           </swiper>
         </div>
         <div class="col-md-6 col-lg-8">
-          <div class="row">
+          <div class="row" v-if="blogs.length >= 1">
             <div
               v-for="blog in blogs.slice(2, blogs.length)"
               :key="blog.id"

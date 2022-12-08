@@ -8,7 +8,11 @@
       </div>
       <div class="row">
         <div class="col-md-6 col-lg-4 slider-container">
-          <swiper :options="swiperOption" class="owl-carousel">
+          <swiper
+            :options="swiperOption"
+            class="owl-carousel"
+            v-if="testimonials.length >= 1"
+          >
             <swiper-slide v-for="item in testimonials" :key="item.id">
               <div class="item">
                 <div class="projects-col">
@@ -28,7 +32,12 @@
           </swiper>
         </div>
         <div class="col-md-6 col-lg-4">
-          <div class="">
+          <div
+            class=""
+            v-if="
+              features.find((one) => one.key === 'features_text_list').value
+            "
+          >
             <div
               v-for="item in features.find(
                 (one) => one.key === 'features_text_list'
