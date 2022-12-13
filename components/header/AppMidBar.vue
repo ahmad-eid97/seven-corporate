@@ -7,7 +7,7 @@
                             <div class="">
                                 <div class="bd-highlight">
                                     <div class="logo-box">
-                                        <a href="/"><img src="/assets/images/logo.png" alt="logoImage"
+                                        <a :href="localePath('/')"><img src="/assets/images/logo.png" alt="logoImage"
                                                 style="width: 250px;"></a>
                                     </div>
                                 </div>

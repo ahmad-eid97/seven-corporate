@@ -13,7 +13,7 @@
             <!-- header dropdown buttons end-->
             <div>
               <a
-                href="index.html"
+                :href="localePath('/')"
                 class="navbar-brand justify-content-end pc-menu"
               >
                 <img

@@ -5,7 +5,7 @@
         <span class="sp-color2">Latest Blog</span>
         <h2>Let’s Check Some Latest Blog</h2>
       </div>
-      <div class="row pt-45" v-if="blogs.blogs.length >= 1">
+      <div class="row pt-45" v-if="blogs.blogs.length">
         <div
           v-for="blog in blogs.blogs"
           :key="blog.id"
@@ -104,7 +104,6 @@ export default {
   transition: 0.9s;
   border: 1px solid #f1f1f1;
   transform: translateY(0px);
-  height: 100%;
 }
 .blog-card:hover {
   transform: translateY(-15px);
