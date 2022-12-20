@@ -38,6 +38,49 @@
               >
                 <li class="nav-item dropdown">
                   <dropdown-menu
+                    v-model="show7"
+                    :hover="true"
+                    :closeOnClickOutside="true"
+                    :hover_time="10"
+                  >
+                    <router-link
+                      :to="localePath('/events')"
+                      class="nav-link dropdown-toggle"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      >Events <i class="fa-solid fa-angle-down"></i>
+                    </router-link>
+                    <div slot="dropdown">
+                      <a class="dropdown-item" href="#">events style 1</a>
+                      <a class="dropdown-item" href="#">events style 2</a>
+                    </div>
+                  </dropdown-menu>
+                </li>
+                <li class="nav-item dropdown">
+                  <dropdown-menu
+                    v-model="show6"
+                    :hover="true"
+                    :closeOnClickOutside="true"
+                    :hover_time="10"
+                  >
+                    <router-link
+                      :to="localePath('/careers')"
+                      class="nav-link dropdown-toggle"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      >Career <i class="fa-solid fa-angle-down"></i>
+                    </router-link>
+                    <div slot="dropdown">
+                      <a class="dropdown-item" href="#">Career style 1</a>
+                      <a class="dropdown-item" href="#">Career style 2</a>
+                    </div>
+                  </dropdown-menu>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <dropdown-menu
                     v-model="show5"
                     :hover="true"
                     :closeOnClickOutside="true"
@@ -355,6 +398,9 @@
                   </b-dropdown>
                 </div>
               </div>
+              <div v-if="$store.state.user" class="logout" @click="logout">
+                <i class="fa-regular fa-right-from-bracket"></i>
+              </div>
             </b-collapse>
           </div>
         </nav>
@@ -395,6 +441,12 @@ export default {
   },
   mounted() {},
   methods: {
+    logout() {
+      this.$store.commit("setUserData", null);
+      this.$cookies.remove("cms-auth");
+      this.$cookies.remove("cms-user");
+      this.$router.push(this.localePath("/login"));
+    },
     handleScroll() {
       if (window.pageYOffset > 200) {
         if (this.topOfPage) this.topOfPage = false;
@@ -417,6 +469,17 @@ export default {
   background-color: #fff;
   top: 0;
   z-index: 10;
+}
+.logout {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .header_container {
