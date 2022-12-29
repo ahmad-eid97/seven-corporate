@@ -1806,7 +1806,7 @@ a.dropdown-item.active {
   right: 40px;
 }
 .slick-slider .slick-prev {
-  left: 20px;
+  left: -20px !important;
   z-index: 1;
 }
 .slick-slider .slick-dots {
@@ -1814,7 +1814,7 @@ a.dropdown-item.active {
 }
 .slick-slider .slick-prev:before,
 .slick-slider .slick-next:before {
-  font-size: 40px;
+  font-size: 25px;
   opacity: 0;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
