@@ -60,6 +60,7 @@ export default {
 .top-bar {
   height: 55px;
   .social-icon {
+    margin: 0;
     li {
       i {
         max-width: 20px;
@@ -68,6 +69,12 @@ export default {
   }
   ul {
     padding: 0;
+  }
+  .p-content {
+    margin: 0;
+    @include xs {
+      display: none;
+    }
   }
 }
 </style>
