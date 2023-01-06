@@ -85,7 +85,7 @@ export default {
       bannerTop: bannerTop.data.data,
       services: services.data.data.services,
       testimonials: testimonials.data.data.testimonials,
-      blogs: blogs.data.data.blogs,
+      blogs: blogs.data.data.blogs.slice(0, 5),
     };
   },
 };

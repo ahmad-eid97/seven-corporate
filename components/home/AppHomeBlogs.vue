@@ -97,7 +97,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .slider-container {
   position: relative;
 }
@@ -152,7 +152,18 @@ export default {
   z-index: 2;
 }
 .overview-icon {
-  /* height: 34px !important; */
+  width: 40px !important;
+  height: 40px !important;
+  h4 {
+    i {
+      width: 40px !important;
+      height: 30px !important;
+      font-size: 20px;
+      display: grid;
+      place-items: center;
+      margin-top: 5px;
+    }
+  }
 }
 .overview-icon .one {
   position: static !important;
