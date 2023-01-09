@@ -122,7 +122,7 @@ img {
 
 .nuxt-link-active::after,
 .nuxt-link-exact-active::after {
-  content: "";
+  /* content: "";
   position: absolute;
   left: 18px;
   right: 18px;
@@ -130,7 +130,7 @@ img {
   height: 2px;
   transition: all calc(300 * 1ms) cubic-bezier(0.42, 0.01, 0.58, 1);
   z-index: 999999998;
-  background-color: var(--main-color) !important;
+  background-color: var(--main-color) !important; */
 }
 
 @media (max-width: 992px) {
