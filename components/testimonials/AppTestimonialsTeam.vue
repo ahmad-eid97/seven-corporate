@@ -62,7 +62,7 @@ export default {
   margin-bottom: 0;
 }
 .thumb img {
-  width: 80%;
+  width: 100%;
   height: 200px;
 }
 .card {

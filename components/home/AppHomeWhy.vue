@@ -150,6 +150,9 @@ export default {
   width: 452px !important;
   max-width: 450px !important;
 }
+.aboutus {
+  margin: 0 20px;
+}
 .about-us .one {
   font-size: 25px !important;
   padding: 5px !important;
@@ -170,6 +173,21 @@ export default {
 }
 .about-us-icon-e {
   left: -210.743px !important;
+}
+.about-us-main-icon {
+  margin-top: 50px;
+}
+.about-icon {
+  width: 30px !important;
+  height: 30px !important;
+  margin-left: 0 !important;
+}
+.about-icon img {
+  width: 30px !important;
+  height: 30px !important;
+}
+.about-item {
+  gap: 20px !important;
 }
 .about-us-icon.active {
   animation-name: circle_pop;

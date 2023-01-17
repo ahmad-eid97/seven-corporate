@@ -423,22 +423,25 @@ export default {
   text-transform: none !important;
   position: relative;
   top: 3px;
-  padding: 5px 20px !important;
+  padding: 8px 20px !important;
 }
 .dropdownBtn {
   margin: 0 !important;
+  padding: 0 !important;
   button {
     background: none !important;
     padding: 0 !important;
     text-transform: uppercase !important;
     font-size: 1.2rem !important;
     font-family: unset !important;
-    font-weight: 400 !important;
+    font-weight: 350 !important;
     box-shadow: none !important;
     border: none !important;
-    min-width: 60px !important;
+    min-width: unset !important;
     position: relative;
-    top: -3px;
+  }
+  .btn {
+    padding: 0 !important;
   }
   .dropdown-menu {
     top: 40px !important;

@@ -70,7 +70,9 @@ export default {
   position: relative;
 }
 .slick-slider .item img {
+  object-fit: cover;
   max-height: 90vh;
+  width: 100%;
 }
 .slick-slider .item .text {
   position: absolute;

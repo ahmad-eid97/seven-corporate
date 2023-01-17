@@ -1066,7 +1066,7 @@ a.dropdown-item.active {
 
 .header .navbar-nav .dropdown-toggle:after {
   margin: -8px 30px 0;
-  content: none;
+  /* content: none; */
 }
 
 .header .navbar-nav .dropdown .dropdown-item.dropdown-toggle::after {

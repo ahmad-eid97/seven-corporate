@@ -28,6 +28,10 @@
 
     <app-home-news :blogs="blogs"></app-home-news>
 
+    <app-home-activities :activities="activities" />
+
+    <app-home-steps :steps="steps" />
+
     <!-- Services Section Start -->
     <app-home-services-offers></app-home-services-offers>
   </div>
@@ -43,6 +47,8 @@ import AppHomeServicesOffers from "../components/home/AppHomeServicesOffers.vue"
 import AppHomeSlider from "../components/home/AppHomeSlider.vue";
 import AppHomeTestimonials from "../components/home/AppHomeTestimonials.vue";
 import AppHomeWhy from "../components/home/AppHomeWhy.vue";
+import AppHomeActivities from "../components/home/AppHomeActivities.vue";
+import AppHomeSteps from "../components/home/AppHomeSteps.vue";
 // @ is an alias to /src
 
 export default {
@@ -57,6 +63,8 @@ export default {
     AppHomeTestimonials,
     AppHomeNews,
     AppHomeServicesOffers,
+    AppHomeActivities,
+    AppHomeSteps,
   },
   async asyncData({ $axios, app }) {
     const slides = await $axios.get("/sliders", {
@@ -83,6 +91,18 @@ export default {
 
     const blogs = await $axios.get("/blogs?latest=1");
 
+    const activities = await $axios.get("/sections/activities", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
+
+    const steps = await $axios.get("/sections/steps", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
+
     return {
       slides: slides.data.data.sliders,
       features: features.data.data,
@@ -90,6 +110,8 @@ export default {
       services: services.data.data.services,
       testimonials: testimonials.data.data.testimonials,
       blogs: blogs.data.data.blogs.slice(0, 5),
+      activities: activities.data.data,
+      steps: steps.data.data,
     };
   },
 };

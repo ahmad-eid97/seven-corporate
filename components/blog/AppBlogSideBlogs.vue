@@ -60,6 +60,7 @@ export default {
   gap: 15px;
 }
 .side-bar-widget .widget-popular-post .item .thumb {
+  width: unset !important;
   /* float: left;
   overflow: hidden;
   position: relative;
