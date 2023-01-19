@@ -419,6 +419,10 @@ textarea.error {
   border-color: rgb(255, 101, 101) !important;
 }
 
+textarea {
+  height: 120px !important;
+}
+
 span.error {
   color: rgb(255, 101, 101);
 }
