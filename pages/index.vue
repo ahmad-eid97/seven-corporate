@@ -34,6 +34,8 @@
 
     <!-- Services Section Start -->
     <app-home-services-offers></app-home-services-offers>
+
+    <subscribe />
   </div>
 </template>
 
@@ -49,6 +51,7 @@ import AppHomeTestimonials from "../components/home/AppHomeTestimonials.vue";
 import AppHomeWhy from "../components/home/AppHomeWhy.vue";
 import AppHomeActivities from "../components/home/AppHomeActivities.vue";
 import AppHomeSteps from "../components/home/AppHomeSteps.vue";
+import subscribe from "../components/subscribe/subscribe.vue";
 // @ is an alias to /src
 
 export default {
@@ -65,6 +68,7 @@ export default {
     AppHomeServicesOffers,
     AppHomeActivities,
     AppHomeSteps,
+    subscribe,
   },
   async asyncData({ $axios, app }) {
     const slides = await $axios.get("/sliders", {
