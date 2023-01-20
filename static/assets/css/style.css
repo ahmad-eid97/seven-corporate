@@ -7493,6 +7493,7 @@ input {
   position: relative;
   display: grid;
   place-items: center;
+  margin: auto;
 }
 .background .one {
   /* position: absolute;

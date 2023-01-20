@@ -21,10 +21,10 @@
             <div class="contact-btn-item slide-style-center mt-sm-5 mt-2">
               <a
                 class="contact-btn style-1"
-                :href="
-                  bannerTop.find((one) => one.key === 'banner-top_link').value
+                href="
+                  /qoutation
                 "
-                >BOOK YOUR CONSULTATION</a
+                >Get Qoutation</a
               >
             </div>
           </div>

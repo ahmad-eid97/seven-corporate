@@ -53,6 +53,7 @@ export default {
       input {
         border-radius: 0;
         width: 400px;
+        padding: 0 15px;
         @include xs {
           width: 200px;
         }

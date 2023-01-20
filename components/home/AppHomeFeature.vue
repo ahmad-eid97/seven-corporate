@@ -12,7 +12,7 @@
           :key="feature"
           class="col-lg-3 col-md-6 mb-10"
         >
-          <div class="item">
+          <div class="item" :class="$i18n.locale === 'ar' ? 'arabic' : ''">
             <div class="background">
               <h4 class="one"><i :class="feature.icon"></i></h4>
             </div>

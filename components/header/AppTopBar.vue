@@ -29,9 +29,6 @@
             </div>
             <div class="col-auto">
               <div class="d-flex" style="gap: 25px">
-                <div class="float-left">
-                  <p class="p-content">Welcome to e-shop!</p>
-                </div>
                 <lang-switch></lang-switch>
               </div>
             </div>
