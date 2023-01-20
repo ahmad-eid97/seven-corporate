@@ -26,13 +26,23 @@ export default {
       }
 
       this.$store.state.showLoader = true;
-      const response = await this.$axios.post("/newsletter", {
-        email: this.email,
-      });
+      const response = await this.$axios
+        .post("/newsletter", {
+          email: this.email,
+        })
+        .catch((err) => {
+          this.$store.state.showLoader = false;
+        });
 
-      this.$store.state.showLoader = false;
+      console.log(response);
 
-      this.$toast.success("Email subscribed successfully");
+      if (response.data.success) {
+        this.$store.state.showLoader = false;
+        return this.$toast.success("Email subscribed successfully");
+      } else {
+        this.$store.state.showLoader = false;
+        return this.$toast.error("Something went wrong!");
+      }
     },
   },
 };

@@ -107,9 +107,10 @@ export default {
 }
 
 .testimonials-carousel-4 .owl-carousel .item img {
-  height: 200px;
+  height: 120px;
   width: 100%;
   border-radius: 0;
+  object-fit: contain;
 }
 .testimonials-carousel-4 .owl-nav .owl-next {
   right: 0px;
