@@ -21,6 +21,9 @@ export default {
   },
   methods: {
     async subscribe() {
+      if (!this.email) {
+        return this.$toast.error("Email can't be empty!");
+      }
       if (!EmailValidator.validate(this.email)) {
         return this.$toast.error("Email is invalid!");
       }
@@ -33,8 +36,6 @@ export default {
         .catch((err) => {
           this.$store.state.showLoader = false;
         });
-
-      console.log(response);
 
       if (response.data.success) {
         this.$store.state.showLoader = false;
@@ -63,7 +64,10 @@ export default {
       input {
         border-radius: 0;
         width: 400px;
+        height: 45px;
+        border: none;
         padding: 0 15px;
+        outline: none;
         @include xs {
           width: 200px;
         }
