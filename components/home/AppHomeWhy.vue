@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-f9">
+  <section class="bg-f9 whySection">
     <div class="container">
       <div class="row">
         <div class="section-title">
@@ -101,9 +101,9 @@
                     {{ feature.title }}
                   </h2>
 
-                  <h3>
+                  <p>
                     {{ feature.description }}
-                  </h3>
+                  </p>
                 </div>
               </h4>
             </div>
@@ -126,6 +126,131 @@ export default {
   },
   mounted() {
     this.autoPlay();
+    document
+      .querySelector(".whySection")
+      .style.setProperty(
+        "--features-bg",
+        this.features.find(
+          (one) => one.key === "features_background_active_section"
+        ).value === "color"
+          ? this.features.find(
+              (one) => one.key === "features_background_color_section"
+            ).value
+          : `url(${
+              this.features.find(
+                (one) => one.key === "features_background_image_section"
+              ).value
+            })`
+      );
+
+    document
+      .querySelector(".whySection")
+      .style.setProperty(
+        "--features-fontSize",
+        `${
+          this.features.find((one) => one.key === "features_font_size_section")
+            .value
+        }px`
+      );
+
+    if (
+      this.features.find(
+        (one) => one.key === "features_border_position_section"
+      ) &&
+      this.features.find(
+        (one) => one.key === "features_border_position_section"
+      ).value === "both"
+    ) {
+      document
+        .querySelector(".whySection")
+        .style.setProperty(
+          "--features-border-top",
+          `${
+            this.features.find(
+              (one) => one.key === "features_border_size_section"
+            ).value
+          }px ${
+            this.features.find(
+              (one) => one.key === "features_border_type_section"
+            ).value
+          } ${
+            this.features.find(
+              (one) => one.key === "features_border_color_section"
+            ).value
+          }`
+        );
+
+      document
+        .querySelector(".whySection")
+        .style.setProperty(
+          "--features-border-bottom",
+          `${
+            this.features.find(
+              (one) => one.key === "features_border_size_section"
+            ).value
+          }px ${
+            this.features.find(
+              (one) => one.key === "features_border_type_section"
+            ).value
+          } ${
+            this.features.find(
+              (one) => one.key === "features_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.features.find(
+        (one) => one.key === "features_border_position_section"
+      ) &&
+      this.features.find(
+        (one) => one.key === "features_border_position_section"
+      ).value === "top"
+    ) {
+      document
+        .querySelector(".whySection")
+        .style.setProperty(
+          "--features-border-top",
+          `${
+            this.features.find(
+              (one) => one.key === "features_border_size_section"
+            ).value
+          }px ${
+            this.features.find(
+              (one) => one.key === "features_border_type_section"
+            ).value
+          } ${
+            this.features.find(
+              (one) => one.key === "features_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.features.find(
+        (one) => one.key === "features_border_position_section"
+      ) &&
+      this.features.find(
+        (one) => one.key === "features_border_position_section"
+      ).value === "top"
+    ) {
+      document
+        .querySelector(".whySection")
+        .style.setProperty(
+          "--features-border-bottom",
+          `${
+            this.features.find(
+              (one) => one.key === "features_border_size_section"
+            ).value
+          }px ${
+            this.features.find(
+              (one) => one.key === "features_border_type_section"
+            ).value
+          } ${
+            this.features.find(
+              (one) => one.key === "features_border_color_section"
+            ).value
+          }`
+        );
+    }
   },
   methods: {
     autoPlay() {
@@ -144,7 +269,26 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.whySection {
+  --features-bg: #fff;
+  --features-fontSize: 20px;
+  --features-border-top: 0px solid #fff;
+  --features-border-bottom: 0px solid #fff;
+
+  background: var(--features-bg);
+  border-top: var(--features-border-top);
+  border-bottom: var(--features-border-bottom);
+  background-repeat: no-repeat;
+  background-size: cover;
+  h3 {
+    font-size: var(--features-fontSize);
+  }
+  p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+}
 .about-us {
   height: 442px !important;
   width: 452px !important;

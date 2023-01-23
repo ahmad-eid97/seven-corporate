@@ -5966,6 +5966,9 @@ footer {
   letter-spacing: 0.7px;
   margin-bottom: 20px;
   text-transform: capitalize;
+  color: #fff;
+  opacity: 0.6 !important;
+  font-size: 0.9rem !important;
 }
 .footer-widget-one .address li {
   margin-bottom: 10px;

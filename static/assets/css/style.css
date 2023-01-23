@@ -97,7 +97,7 @@ h6 {
 }
 
 p {
-  color: #9c9c9c;
+  /* color: #9c9c9c; */
   font-family: "Open Sans", sans-serif;
   line-height: 28px;
   margin: 0;
@@ -251,7 +251,7 @@ input:-moz-placeholder {
   background: #f8f8f8 !important;
 }
 .bg-f9 {
-  background: #f9f9f9 !important;
+  /* background: #f9f9f9 !important; */
 }
 
 .over-layer-black,
@@ -5981,6 +5981,9 @@ footer {
   letter-spacing: 0.7px;
   margin-bottom: 20px;
   text-transform: capitalize;
+  color: #fff;
+  opacity: 0.6 !important;
+  font-size: 0.9rem !important;
 }
 .footer-widget-one .address li {
   margin-bottom: 10px;

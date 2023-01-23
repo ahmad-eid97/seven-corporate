@@ -43,7 +43,151 @@ export default {
     return {};
   },
   methods: {},
+  mounted() {
+    document
+      .querySelector(".contact-divider")
+      .style.setProperty(
+        "--bannerTop-bg",
+        this.bannerTop.find(
+          (one) => one.key === "banner-top_background_active_section"
+        ).value === "color"
+          ? this.bannerTop.find(
+              (one) => one.key === "banner-top_background_color_section"
+            ).value
+          : `url(${
+              this.bannerTop.find(
+                (one) => one.key === "banner-top_background_image_section"
+              ).value
+            })`
+      );
+
+    document
+      .querySelector(".contact-divider")
+      .style.setProperty(
+        "--bannerTop-fontSize",
+        `${
+          this.bannerTop.find(
+            (one) => one.key === "banner-top_font_size_section"
+          ).value
+        }px`
+      );
+
+    if (
+      this.bannerTop.find(
+        (one) => one.key === "banner-top_border_position_section"
+      ) &&
+      this.bannerTop.find(
+        (one) => one.key === "banner-top_border_position_section"
+      ).value === "both"
+    ) {
+      document
+        .querySelector(".contact-divider")
+        .style.setProperty(
+          "--bannerTop-border-top",
+          `${
+            this.bannerTop.find(
+              (one) => one.key === "banner-top_border_size_section"
+            ).value
+          }px ${
+            this.bannerTop.find(
+              (one) => one.key === "banner-top_border_type_section"
+            ).value
+          } ${
+            this.bannerTop.find(
+              (one) => one.key === "banner-top_border_color_section"
+            ).value
+          }`
+        );
+
+      document
+        .querySelector(".contact-divider")
+        .style.setProperty(
+          "--bannerTop-border-bottom",
+          `${
+            this.bannerTop.find(
+              (one) => one.key === "banner-top_border_size_section"
+            ).value
+          }px ${
+            this.bannerTop.find(
+              (one) => one.key === "banner-top_border_type_section"
+            ).value
+          } ${
+            this.bannerTop.find(
+              (one) => one.key === "banner-top_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.bannerTop.find(
+        (one) => one.key === "banner-top_border_position_section"
+      ) &&
+      this.bannerTop.find(
+        (one) => one.key === "banner-top_border_position_section"
+      ).value === "top"
+    ) {
+      document
+        .querySelector(".contact-divider")
+        .style.setProperty(
+          "--bannerTop-border-top",
+          `${
+            this.bannerTop.find(
+              (one) => one.key === "banner-top_border_size_section"
+            ).value
+          }px ${
+            this.bannerTop.find(
+              (one) => one.key === "banner-top_border_type_section"
+            ).value
+          } ${
+            this.bannerTop.find(
+              (one) => one.key === "banner-top_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.bannerTop.find(
+        (one) => one.key === "banner-top_border_position_section"
+      ) &&
+      this.bannerTop.find(
+        (one) => one.key === "banner-top_border_position_section"
+      ).value === "top"
+    ) {
+      document
+        .querySelector(".contact-divider")
+        .style.setProperty(
+          "--bannerTop-border-bottom",
+          `${
+            this.bannerTop.find(
+              (one) => one.key === "banner-top_border_size_section"
+            ).value
+          }px ${
+            this.bannerTop.find(
+              (one) => one.key === "banner-top_border_type_section"
+            ).value
+          } ${
+            this.bannerTop.find(
+              (one) => one.key === "banner-top_border_color_section"
+            ).value
+          }`
+        );
+    }
+  },
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.contact-divider {
+  --bannerTop-bg: #fff;
+  --bannerTop-fontSize: 20px;
+  --bannerTop-border-top: 0px solid #fff;
+  --bannerTop-border-bottom: 0px solid #fff;
+
+  background: var(--bannerTop-bg);
+  border-top: var(--bannerTop-border-top);
+  border-bottom: var(--bannerTop-border-bottom);
+  background-repeat: no-repeat;
+  background-size: cover;
+  h1 {
+    font-size: var(--bannerTop-fontSize);
+  }
+}
+</style>
