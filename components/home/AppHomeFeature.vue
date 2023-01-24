@@ -143,7 +143,7 @@ export default {
       ) &&
       this.features.find(
         (one) => one.key === "features_border_position_section"
-      ).value === "top"
+      ).value === "bottom"
     ) {
       document
         .querySelector(".featuresSection")
