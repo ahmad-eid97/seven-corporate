@@ -249,6 +249,7 @@ export default {
   text-transform: capitalize;
   margin-bottom: 20px;
   text-align: center !important;
+  color: #fff;
 }
 .activities .seprator {
   align-self: center;
@@ -268,6 +269,7 @@ export default {
   font-weight: 500;
   line-height: 34.05px;
   text-align: center !important;
+  color: #fff;
 }
 .activities .flip-box {
   min-height: 325.617px;
