@@ -388,6 +388,10 @@ export default {
   justify-content: center;
 }
 
+.nav-item .active {
+  color: var(--main-color) !important;
+}
+
 .nav-item {
   i {
     max-width: 15px;

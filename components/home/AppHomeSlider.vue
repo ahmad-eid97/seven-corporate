@@ -66,6 +66,9 @@ export default {
 };
 </script>
 <style>
+.slider-wrapper {
+  max-height: 80vh;
+}
 .slick-slider .item {
   position: relative;
 }
