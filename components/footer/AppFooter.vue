@@ -10,12 +10,19 @@
               <div class="footer-item footer-widget-one">
                 <img
                   class="footer-logo mb-25"
-                  src="/assets/images/logo2.png"
+                  :src="
+                    $store.state.websiteSettings.find(
+                      (one) => one.key === 'logo'
+                    ).plain_value
+                  "
                   alt="logoImage"
                 />
                 <p>
-                  Dolorum quae quis cumque officia labore delectus at animi
-                  ducimus non nisi, dolores sapiente
+                  {{
+                    $store.state.websiteSettings.find(
+                      (one) => one.key === "description"
+                    ).plain_value
+                  }}
                 </p>
                 <hr />
               </div>
@@ -27,37 +34,31 @@
                   <h4><span>CONTACT INFO</span></h4>
                 </div>
                 <ul class="footer-list footer-contact mb-10">
-                  <li><i class="pe-7s-call"></i> Phone: 001 (407) 901-6400</li>
-                  <li><i class="pe-7s-print"></i> Fax: 001 (407) 901-6400</li>
+                  <li>
+                    <i class="pe-7s-call"></i> Phone:
+                    {{
+                      $store.state.websiteSettings.find(
+                        (one) => one.key === "contact_phone"
+                      ).plain_value
+                    }}
+                  </li>
                   <li>
                     <i class="pe-7s-mail"></i>
-                    <a href="mailto:"
-                      >Email:
-                      {{
-                        $store.state.websiteSettings.find(
-                          (one) => one.key === "email"
-                        ).plain_value
-                      }}</a
-                    >
+                    Email:
+                    {{
+                      $store.state.websiteSettings.find(
+                        (one) => one.key === "email"
+                      ).plain_value
+                    }}
                   </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="footer-item">
-                <div class="footer-title">
-                  <h4>Services</h4>
-                </div>
-                <ul class="footer-list">
                   <li>
-                    <a href="#">Investment & Stock Exchange (clickable)</a>
+                    <i class="pe-7s-call"></i> Address:
+                    {{
+                      $store.state.websiteSettings.find(
+                        (one) => one.key === "contact_address"
+                      ).plain_value
+                    }}
                   </li>
-                  <li><a href="#">Business Advisory</a></li>
-                  <li><a href="#">Accounting & Tax Services</a></li>
-                  <li><a href="#">Finance & Banking</a></li>
-                  <li><a href="#">International Banking</a></li>
-                  <li><a href="#">Business Consulting</a></li>
                 </ul>
               </div>
             </div>
@@ -65,7 +66,7 @@
             <div class="col-md-3">
               <div class="footer-item">
                 <div class="footer-title">
-                  <h4>RECENT NEWS</h4>
+                  <h4>USEFULL LINKS</h4>
                 </div>
                 <ul class="footer-list">
                   <!-- <li><a href="#">About Us</a></li> -->
@@ -96,6 +97,22 @@
                 </ul>
               </div>
             </div>
+
+            <div class="col-md-3">
+              <div class="footer-item">
+                <div class="footer-title">
+                  <h4>OTHER PAGES</h4>
+                  <ul class="footer-list">
+                    <!-- <li><a href="#">About Us</a></li> -->
+                    <li v-for="page in $store.state.footerPages" :key="page.id">
+                      <b-nav-item :to="localePath(generatePagePath(page.id))">{{
+                        page.name
+                      }}</b-nav-item>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -109,6 +126,16 @@
                 Rail Coder</a
               >
             </p>
+            <ul class="footer-list footer_social_links">
+              <li>
+                <a href="#">*</a>
+              </li>
+              <li><a href="#">*</a></li>
+              <li><a href="#">*</a></li>
+              <li><a href="#">*</a></li>
+              <li><a href="#">*</a></li>
+              <li><a href="#">*</a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -127,14 +154,59 @@ export default {
     return {};
   },
   beforeMount() {},
-  methods: {},
+  methods: {
+    generatePagePath(id) {
+      switch (id) {
+        case 1:
+          return "/about";
+        case 2:
+          return "/contact";
+        case 3:
+          return "/terms";
+        case 4:
+          return "/policy";
+      }
+    },
+  },
+  mounted() {
+    console.log(this.$store.state.socialLinks);
+  },
 };
 </script>
 
 <style scoped lang="scss">
 .footer-list {
+  padding: 0 !important;
   li {
     color: rgb(160, 160, 160);
+  }
+}
+.footer_social_links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  li {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    display: grid;
+    place-content: center;
+    margin: 0;
+    cursor: pointer;
+    padding: 0 !important;
+    a {
+      color: #fff;
+    }
+    &:hover {
+      background: var(--main-color);
+      color: #000 !important;
+      a {
+        color: #000 !important;
+      }
+    }
   }
 }
 </style>
