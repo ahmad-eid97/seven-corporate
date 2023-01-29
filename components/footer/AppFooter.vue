@@ -157,6 +157,9 @@ export default {
     color: rgb(160, 160, 160);
   }
 }
+.footer-title {
+  margin-bottom: 0;
+}
 .footer_social_links {
   display: flex;
   align-items: center;
