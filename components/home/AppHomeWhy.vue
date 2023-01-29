@@ -9,7 +9,7 @@
       <div class="row gy-4 justify-content-center align-items-center">
         <div class="col-lg-6">
           <div
-            class="aboutus right"
+            class="aboutus"
             v-if="
               features.find((one) => one.key === 'features_text_list').value
             "
@@ -22,14 +22,14 @@
               :key="index"
               class="about-item mb-20"
             >
-              <div class="about-details">
-                <p>{{ feature.description }}</p>
-              </div>
               <div class="about-icon">
                 <img
                   :src="`/assets/images/icons/${index + 1}.png`"
                   alt="icon"
                 />
+              </div>
+              <div class="about-details">
+                <p>{{ feature.description }}</p>
               </div>
             </div>
           </div>
@@ -288,6 +288,9 @@ export default {
     font-size: 0.9rem;
     opacity: 0.8;
   }
+}
+p {
+  margin-left: 0 !important;
 }
 .about-us {
   height: 442px !important;

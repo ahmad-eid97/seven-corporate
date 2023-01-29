@@ -70,29 +70,8 @@
                 </div>
                 <ul class="footer-list">
                   <!-- <li><a href="#">About Us</a></li> -->
-                  <li>
-                    <b-nav-item :to="localePath('/about')">About Us</b-nav-item>
-                  </li>
-                  <li>
-                    <b-nav-item :to="localePath('/services')"
-                      >Services</b-nav-item
-                    >
-                  </li>
-                  <li>
-                    <b-nav-item :to="localePath('/team')">Team</b-nav-item>
-                  </li>
-                  <li>
-                    <b-nav-item :to="localePath('/testimonials')"
-                      >Gallery</b-nav-item
-                    >
-                  </li>
-                  <li>
-                    <b-nav-item :to="localePath('/blogs')">Blogs</b-nav-item>
-                  </li>
-                  <li>
-                    <b-nav-item :to="localePath('/contact')"
-                      >Contact</b-nav-item
-                    >
+                  <li v-for="link in $store.state.usefulLinks" :key="link.id">
+                    <a :href="link.url">{{ link.name }}</a>
                   </li>
                 </ul>
               </div>
@@ -105,9 +84,11 @@
                   <ul class="footer-list">
                     <!-- <li><a href="#">About Us</a></li> -->
                     <li v-for="page in $store.state.footerPages" :key="page.id">
-                      <b-nav-item :to="localePath(generatePagePath(page.id))">{{
-                        page.name
-                      }}</b-nav-item>
+                      <b-nav-item
+                        :to="localePath(generatePagePath(page.id))"
+                        v-if="page.status"
+                        >{{ page.name }}</b-nav-item
+                      >
                     </li>
                   </ul>
                 </div>
@@ -127,14 +108,9 @@
               >
             </p>
             <ul class="footer-list footer_social_links">
-              <li>
-                <a href="#">*</a>
+              <li v-for="link in $store.state.socialLinks" :key="link.key">
+                <i :class="link.icon"></i>
               </li>
-              <li><a href="#">*</a></li>
-              <li><a href="#">*</a></li>
-              <li><a href="#">*</a></li>
-              <li><a href="#">*</a></li>
-              <li><a href="#">*</a></li>
             </ul>
           </div>
         </div>
