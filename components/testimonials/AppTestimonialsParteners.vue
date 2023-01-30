@@ -60,7 +60,7 @@ export default {
 </script>
 <style>
 .partners {
-  padding: 45px 100px 0;
+  padding: 40px 0px;
   background-color: var(--main-color);
 }
 .partners::before {

@@ -10,7 +10,12 @@
               }}
             </h2>
 
-            <h1>
+            <h1
+              v-if="
+                bannerTop.find((one) => one.key === 'banner-top_description')
+                  .value
+              "
+            >
               {{
                 bannerTop
                   .find((one) => one.key === "banner-top_description")

@@ -53,7 +53,10 @@ export default {
 </script>
 <style>
 .partners {
-  padding: 0px 100px;
+  padding: 50px 0px;
+}
+.partners .swiper-container {
+  margin-bottom: 0 !important;
 }
 .partners .owl-carousel {
   margin-bottom: 40px;

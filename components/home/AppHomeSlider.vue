@@ -67,14 +67,15 @@ export default {
 </script>
 <style>
 .slider-wrapper {
-  max-height: 80vh;
+  height: 80vh;
+  overflow: hidden;
 }
 .slick-slider .item {
   position: relative;
 }
 .slick-slider .item img {
   object-fit: cover;
-  max-height: 90vh;
+  /* max-height: 90vh; */
   width: 100%;
 }
 .slick-slider .item .text {

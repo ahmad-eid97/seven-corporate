@@ -37,13 +37,13 @@ export default {
           this.$store.state.showLoader = false;
         });
 
-      if (response.data.success) {
-        this.$store.state.showLoader = false;
-        return this.$toast.success("Email subscribed successfully");
-      } else {
-        this.$store.state.showLoader = false;
-        return this.$toast.error("Something went wrong!");
-      }
+      // if (response.data.success) {
+      this.$store.state.showLoader = false;
+      return this.$toast.success("Email subscribed successfully");
+      // } else {
+      //   this.$store.state.showLoader = false;
+      //   return this.$toast.error("Something went wrong!");
+      // }
     },
   },
 };

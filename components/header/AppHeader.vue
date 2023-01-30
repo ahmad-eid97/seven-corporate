@@ -305,25 +305,25 @@ export default {
 .cartIcon {
   border: 1px solid var(--main-color);
   border-radius: 5px;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   display: grid;
   place-items: center;
   cursor: pointer;
   position: relative;
-  margin: 0 15px !important;
+  margin: 0px 15px !important;
   span {
     position: absolute;
     top: -15px;
     right: -10px;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     background-color: var(--main-color);
     border-radius: 50%;
     color: #fff;
     display: grid;
     place-content: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     @include sm {
       font-size: 1rem;
     }
