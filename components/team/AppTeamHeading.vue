@@ -4,11 +4,11 @@
       <h3 class="col-12 text-center title">Team</h3>
       <div class="col-12 text-center">
         <div class="breadcrumb">
-          <router-link to="home"> Home </router-link>
+          <nuxt-link to="/"> Home </nuxt-link>
           <a href="">
             <i class="fa-solid fa-angles-right"></i>
           </a>
-          <a href="#"> Team </a>
+          <nuxt-link href="/team"> Team </nuxt-link>
         </div>
       </div>
     </div>

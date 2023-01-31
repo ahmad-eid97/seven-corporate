@@ -136,18 +136,18 @@ export default {
   width: 100%;
 }
 .slick-slider:last-of-type {
-  width: 600px;
+  /* width: 600px;
   position: absolute !important;
   bottom: 30px;
   right: 20px;
-  z-index: 3;
+  z-index: 3; */
 }
 .slick-slider:last-of-type .slick-slide {
   padding: 0 5px;
   cursor: pointer;
 }
 .slick-slider:last-of-type img {
-  opacity: 0.6;
+  /* opacity: 0.6; */
 }
 .slick-slider:last-of-type img:hover {
   opacity: 1;

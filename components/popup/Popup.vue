@@ -1,5 +1,15 @@
 <template>
-  <div class="wrapper" :class="!$store.state.showPopup ? 'hide' : ''">
+  <div
+    class="wrapper"
+    :class="
+      !$store.state.showPopup ||
+      !$store.state.websiteSettings.find((one) => one.key === 'popup_status') ||
+      !$store.state.websiteSettings.find((one) => one.key === 'popup_status')
+        .plain_value
+        ? 'hide'
+        : ''
+    "
+  >
     <div class="popup" :class="$i18n.locale === 'ar' ? 'arabic' : ''">
       <i class="fa-regular fa-xmark close" @click="closePopup"></i>
       <a
@@ -84,6 +94,7 @@ export default {
 
       // if (response.data.success) {
       this.$store.state.showLoader = false;
+      this.email = "";
       this.closePopup();
       return this.$toast.success("Email subscribed successfully");
       // } else {

@@ -204,6 +204,9 @@ ${orderedItems.map(
 
 <style scoped lang="scss">
 .checkout {
+  fieldset {
+    width: 20px !important;
+  }
   .wrapper {
     margin-top: 100px;
     .items,
@@ -311,6 +314,10 @@ ${orderedItems.map(
         label {
           font-size: 1.1rem;
         }
+      }
+      input {
+        width: 15px !important;
+        height: 15px !important;
       }
       button {
         width: 100%;
