@@ -4,11 +4,11 @@
       <h3 class="col-12 text-center title">Forget Password</h3>
       <div class="col-12 text-center">
         <div class="breadcrumb">
-          <router-link to="/"> Home </router-link>
+          <router-link :to="localePath('/')"> Home </router-link>
           <nuxt-link href="">
             <i class="fa-solid fa-angles-right"></i>
           </nuxt-link>
-          <nuxt-link href="/forget"> Forget Password </nuxt-link>
+          <nuxt-link :to="localePath('/forget')"> Forget Password </nuxt-link>
         </div>
       </div>
     </div>
