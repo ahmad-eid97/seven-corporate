@@ -44,7 +44,9 @@
       <app-home-activities :activities="activities.data" />
     </div>
 
-    <app-home-steps :steps="steps" />
+    <div v-if="steps.status">
+      <app-home-steps :steps="steps.data" />
+    </div>
 
     <!-- Services Section Start -->
     <app-home-services-offers></app-home-services-offers>
@@ -194,7 +196,7 @@ export default {
       testimonials: testimonials.data.data.testimonials,
       blogs: blogs.data.data.blogs.slice(0, 5),
       activities: activities.data,
-      steps: steps.data.data,
+      steps: steps.data,
     };
   },
   mounted() {},
