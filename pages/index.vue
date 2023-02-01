@@ -6,18 +6,28 @@
     <app-home-partners :partners="partners" />
     <!-- Slick Section End -->
 
-    <app-home-feature :features="features"></app-home-feature>
+    <div v-if="features.status">
+      <app-home-feature :features="features.data"></app-home-feature>
+    </div>
 
-    <app-home-blogs
-      :blogs="blogs.slice(0, 1)"
-      :features="features"
-      :testimonials="testimonials"
-    ></app-home-blogs>
+    <div v-if="features.status">
+      <app-home-blogs
+        :blogs="blogs.slice(0, 1)"
+        :features="features.data"
+        :testimonials="testimonials"
+      ></app-home-blogs>
+    </div>
 
-    <app-home-contact-divider :bannerTop="bannerTop"></app-home-contact-divider>
+    <div v-if="bannerTop.status">
+      <app-home-contact-divider
+        :bannerTop="bannerTop.data"
+      ></app-home-contact-divider>
+    </div>
 
     <!-- WHY WORK WITH US Start -->
-    <app-home-why :features="features"></app-home-why>
+    <div v-if="features.status">
+      <app-home-why :features="features.data"></app-home-why>
+    </div>
     <!-- WHY WORK WITH US End -->
 
     <!-- SERVICES WE PROVIDESection Start -->
@@ -30,7 +40,9 @@
 
     <app-home-news :blogs="blogs"></app-home-news>
 
-    <app-home-activities :activities="activities" />
+    <div v-if="activities.status">
+      <app-home-activities :activities="activities.data" />
+    </div>
 
     <app-home-steps :steps="steps" />
 
@@ -176,12 +188,12 @@ export default {
     return {
       slides: slides.data.data.sliders,
       partners: partners.data.data.partners,
-      features: features.data.data,
-      bannerTop: bannerTop.data.data,
+      features: features.data,
+      bannerTop: bannerTop.data,
       services: services.data.data.services,
       testimonials: testimonials.data.data.testimonials,
       blogs: blogs.data.data.blogs.slice(0, 5),
-      activities: activities.data.data,
+      activities: activities.data,
       steps: steps.data.data,
     };
   },
