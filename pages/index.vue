@@ -6,11 +6,11 @@
     <app-home-partners :partners="partners" />
     <!-- Slick Section End -->
 
-    <div v-if="features.status">
+    <div v-if="$store.state.sectionsStatus.features">
       <app-home-feature :features="features.data"></app-home-feature>
     </div>
 
-    <div v-if="features.status">
+    <div v-if="$store.state.sectionsStatus.features">
       <app-home-blogs
         :blogs="blogs.slice(0, 1)"
         :features="features.data"
@@ -18,14 +18,14 @@
       ></app-home-blogs>
     </div>
 
-    <div v-if="bannerTop.status">
+    <div v-if="$store.state.sectionsStatus['banner-top']">
       <app-home-contact-divider
         :bannerTop="bannerTop.data"
       ></app-home-contact-divider>
     </div>
 
     <!-- WHY WORK WITH US Start -->
-    <div v-if="features.status">
+    <div v-if="$store.state.sectionsStatus.features">
       <app-home-why :features="features.data"></app-home-why>
     </div>
     <!-- WHY WORK WITH US End -->
@@ -40,11 +40,11 @@
 
     <app-home-news :blogs="blogs"></app-home-news>
 
-    <div v-if="activities.status">
+    <div v-if="$store.state.sectionsStatus.activities">
       <app-home-activities :activities="activities.data" />
     </div>
 
-    <div v-if="steps.status">
+    <div v-if="$store.state.sectionsStatus.steps">
       <app-home-steps :steps="steps.data" />
     </div>
 
@@ -147,6 +147,9 @@ export default {
     AppHomeActivities,
     AppHomeSteps,
     AppHomePartners,
+  },
+  mounted() {
+    console.log(this.$store.state.sectionsStatus);
   },
   async asyncData({ $axios, app }) {
     const slides = await $axios.get("/sliders", {
